@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;700&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ── Brand tokens ── */
+  --milk: #1e3a52;           /* deep navy-ink (replaces sea-ink) */
+  --milk-soft: #4a6c85;      /* muted blue-gray (replaces sea-ink-soft) */
+  --sky: #5aaed4;            /* primary ice blue (replaces lagoon) */
+  --sky-deep: #3a87b0;       /* deeper sky (replaces lagoon-deep) */
+  --lavender: #D9E9FF;       /* light powder lavender */
+  --lavender-deep: #A8C4EE;  /* medium lavender-blue */
+  --blush: #FFF0F5;           /* soft pink tint */
+  --warm-gray: #6B7A85;       /* neutral warm gray */
+  --ice-mid: #C4E5F7;         /* mid ice blue (borders, dividers) */
+  --ice-deep: #9DD0EE;        /* deeper ice (hover states, badge borders) */
+  --shadow: 0 4px 20px rgba(90, 174, 212, 0.12);
+  --shadow-card: 0 2px 12px rgba(58, 135, 176, 0.10);
+  --frost: #e8f4fd;          /* very light ice (replaces sand) */
+  --foam: #f7fbfe;           /* near-white foam (replaces foam) */
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --line: rgba(30, 58, 82, 0.12);
+  --inset-glint: rgba(255, 255, 255, 0.88);
+  --kicker: rgba(58, 135, 176, 0.9);
+  --bg-base: #e3f3fc;
+  --header-bg: rgba(247, 251, 255, 0.86);
+  --chip-bg: rgba(255, 255, 255, 0.82);
+  --chip-line: rgba(90, 174, 212, 0.22);
+  --link-bg-hover: rgba(255, 255, 255, 0.92);
+  --hero-a: rgba(90, 174, 212, 0.32);   /* sky blue bloom */
+  --hero-b: rgba(122, 159, 212, 0.18);  /* lavender bloom */
+
+  /* ── shadcn/ui semantic tokens ── */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 220);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 220);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 220);
+  --primary: oklch(0.52 0.09 220);      /* sky blue */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.94 0.02 220);
+  --secondary-foreground: oklch(0.21 0.006 220);
+  --muted: oklch(0.94 0.02 220);
+  --muted-foreground: oklch(0.55 0.03 220);
+  --accent: oklch(0.91 0.03 240);       /* lavender tint */
+  --accent-foreground: oklch(0.21 0.006 220);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.89 0.03 220);
+  --input: oklch(0.89 0.03 220);
+  --ring: oklch(0.75 0.06 220);
+  --chart-1: oklch(0.62 0.13 220);
+  --chart-2: oklch(0.65 0.10 240);
+  --chart-3: oklch(0.55 0.08 200);
+  --chart-4: oklch(0.78 0.08 190);
+  --chart-5: oklch(0.72 0.10 210);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.97 0.02 220);
+  --sidebar-foreground: oklch(0.141 0.005 220);
+  --sidebar-primary: oklch(0.52 0.09 220);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.91 0.03 240);
+  --sidebar-accent-foreground: oklch(0.21 0.006 220);
+  --sidebar-border: oklch(0.89 0.03 220);
+  --sidebar-ring: oklch(0.75 0.06 220);
+}
+
+.dark {
+  --milk: #d0e8f5;
+  --milk-soft: #9bbfd8;
+  --sky: #72c6e8;
+  --sky-deep: #9dd8f0;
+  --lavender: #a8c4ee;
+  --lavender-deep: #7a9fd4;
+  --blush: rgba(255, 120, 160, 0.08);
+  --warm-gray: #8a9fad;
+  --ice-mid: rgba(144, 200, 232, 0.18);
+  --ice-deep: rgba(144, 200, 232, 0.30);
+  --shadow: 0 4px 20px rgba(20, 80, 120, 0.28);
+  --shadow-card: 0 2px 12px rgba(20, 60, 100, 0.24);
+  --frost: #0d1c26;
+  --foam: #0a1620;
+  --surface: rgba(13, 28, 38, 0.82);
+  --surface-strong: rgba(10, 22, 32, 0.94);
+  --line: rgba(144, 200, 232, 0.18);
+  --inset-glint: rgba(180, 225, 248, 0.12);
+  --kicker: #a8dcf0;
+  --bg-base: #080f18;
+  --header-bg: rgba(8, 15, 24, 0.82);
+  --chip-bg: rgba(13, 26, 38, 0.92);
+  --chip-line: rgba(144, 200, 232, 0.26);
+  --link-bg-hover: rgba(20, 38, 55, 0.82);
+  --hero-a: rgba(114, 198, 232, 0.16);
+  --hero-b: rgba(168, 196, 238, 0.12);
+
+  --background: oklch(0.141 0.005 220);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.141 0.005 220);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.141 0.005 220);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.72 0.10 210);
+  --primary-foreground: oklch(0.10 0.005 220);
+  --secondary: oklch(0.22 0.03 220);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.22 0.03 220);
+  --muted-foreground: oklch(0.65 0.04 220);
+  --accent: oklch(0.24 0.04 240);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0.03 220);
+  --input: oklch(0.25 0.03 220);
+  --ring: oklch(0.42 0.06 220);
+  --chart-1: oklch(0.62 0.13 220);
+  --chart-2: oklch(0.65 0.10 240);
+  --chart-3: oklch(0.72 0.08 200);
+  --chart-4: oklch(0.60 0.12 260);
+  --chart-5: oklch(0.55 0.10 210);
+  --sidebar: oklch(0.18 0.02 220);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.62 0.10 210);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.24 0.04 240);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.25 0.03 220);
+  --sidebar-ring: oklch(0.42 0.06 220);
+}
+
+@theme inline {
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--milk);
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  background:
+    radial-gradient(1100px 620px at -8% -10%, var(--hero-a), transparent 58%),
+    radial-gradient(1050px 620px at 112% -12%, var(--hero-b), transparent 62%),
+    radial-gradient(720px 380px at 50% 115%, rgba(90, 174, 212, 0.08), transparent 68%),
+    linear-gradient(180deg, color-mix(in oklab, var(--frost) 72%, white) 0%, var(--foam) 44%, var(--bg-base) 100%);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.26;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.85), transparent 34%),
+    radial-gradient(circle at 78% 26%, rgba(90, 174, 212, 0.22), transparent 42%),
+    radial-gradient(circle at 42% 82%, rgba(122, 159, 212, 0.14), transparent 36%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at 50% 30%, black, transparent 78%);
+}
+
+a {
+  color: var(--sky-deep);
+  text-decoration-color: rgba(58, 135, 176, 0.38);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: #2a6d90;
+}
+
+code {
+  font-size: 0.9em;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--surface-strong) 82%, white 18%);
+  border-radius: 8px;
+  padding: 2px 7px;
+}
+
+pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.prose pre {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #0f1e2e;
+  color: #d8eeff;
+}
+
+.page-wrap {
+  width: min(1080px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+/* Nunito is already rounded and warm — no separate display family needed,
+   but keep the class for semantic targeting */
+.display-title {
+  font-family: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.island-shell {
+  border: 1px solid var(--line);
+  background: linear-gradient(165deg, var(--surface-strong), var(--surface));
+  box-shadow:
+    0 1px 0 var(--inset-glint) inset,
+    0 22px 44px rgba(30, 90, 130, 0.08),
+    0 6px 18px rgba(30, 58, 82, 0.07);
+  backdrop-filter: blur(4px);
+}
+
+.feature-card {
+  background: linear-gradient(165deg, color-mix(in oklab, var(--surface-strong) 93%, white 7%), var(--surface));
+  box-shadow:
+    0 1px 0 var(--inset-glint) inset,
+    0 18px 34px rgba(30, 90, 130, 0.08),
+    0 4px 14px rgba(30, 58, 82, 0.06);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--sky-deep) 35%, var(--line));
+}
+
+button,
+.island-shell,
+a {
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.island-kicker {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.69rem;
+  color: var(--kicker);
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--milk-soft);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--sky), var(--lavender));
+  transition: transform 170ms ease;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--milk);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.rise-in {
+  animation: rise-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: color-mix(in oklab, var(--header-bg) 84%, transparent 16%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
