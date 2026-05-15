@@ -1,5 +1,18 @@
-import { drizzle } from "drizzle-orm/better-sqlite3";
+import { createClient } from "@libsql/client";
+import { drizzle } from "drizzle-orm/libsql";
+
+if (!process.env.TURSO_DATABASE_URL) {
+	throw new Error("Missing TURSO_DATABASE_URL environment variable");
+}
+
+if (!process.env.TURSO_AUTH_TOKEN) {
+	throw new Error("Missing TURSO_AUTH_TOKEN environment variable");
+}
 
 import * as schema from "./schema.ts";
 
-export const db = drizzle(process.env.DATABASE_URL!, { schema });
+const client = createClient({
+	url: process.env.TURSO_DATABASE_URL,
+	authToken: process.env.TURSO_AUTH_TOKEN,
+});
+export const db = drizzle(client, { schema });
